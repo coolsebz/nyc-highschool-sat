@@ -8,22 +8,24 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
 class SatScoreTable extends PureComponent {
-
   prepareData(readingScore, mathScore, writingScore) {
-    return [{
-      label: 'Critical Reading',
-      score: readingScore,
-    }, {
-      label: 'Math',
-      score: mathScore,
-    }, {
-      label: 'Writing',
-      score: writingScore,
-    }];
-  };
+    return [
+      {
+        label: 'Critical Reading',
+        score: readingScore,
+      },
+      {
+        label: 'Math',
+        score: mathScore,
+      },
+      {
+        label: 'Writing',
+        score: writingScore,
+      },
+    ];
+  }
 
   render() {
-
     const {
       readingScore = 'N/A',
       mathScore = 'N/A',
@@ -58,24 +60,18 @@ class SatScoreTable extends PureComponent {
 }
 
 SatScoreTable.propTypes = {
-  readingScore: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-  mathScore: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-  writingScore: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
+  readingScore: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  mathScore: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  writingScore: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
 };
 
 SatScoreTable.defaultProps = {
   readingScore: 'N/A',
   mathScore: 'N/A',
-  writingScore: 'N/A'
+  writingScore: 'N/A',
 };
 
 export default SatScoreTable;

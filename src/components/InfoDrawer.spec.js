@@ -4,8 +4,6 @@ import Button from '@material-ui/core/Button';
 import InfoDrawer from './InfoDrawer';
 
 describe('InfoDrawer', () => {
-  let infoDrawer;
-
   it('should display without errors', () => {
     // not including SAT scores
     const mockHighSchool = {
@@ -26,7 +24,7 @@ describe('InfoDrawer', () => {
   });
 
   it('should have the Add to compare button working', () => {
-   // not including SAT scores
+    // not including SAT scores
     const mockHighSchool = {
       dbn: '01',
       school_name: 'test name',
@@ -34,7 +32,7 @@ describe('InfoDrawer', () => {
       phone_number: '718-123-1234',
       total_students: '100',
     };
-    
+
     const infoDrawer = mount(<InfoDrawer highSchool={mockHighSchool} />);
 
     // clicking the button executes the correct handler

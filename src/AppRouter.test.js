@@ -8,11 +8,10 @@ jest.mock('./data/DataAggregator.worker', () => {
   return jest.fn().mockImplementation(() => {
     return {
       addEventListener: jest.fn(),
-      postMessage: jest.fn()
+      postMessage: jest.fn(),
     };
   });
 });
-
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

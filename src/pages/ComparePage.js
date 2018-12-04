@@ -4,7 +4,6 @@ import ScoresChart from '../components/ScoresChart';
 import ScoresTable from '../components/ScoresTable';
 
 class ComparePage extends PureComponent {
-  
   render() {
     return (
       <SchoolCompareConsumer>

@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
+import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
 import SchoolListing from './SchoolListing';
-import InfoDrawer from "./InfoDrawer";
-
+import InfoDrawer from './InfoDrawer';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   moreInfoGrid: {
     position: 'relative',
@@ -16,7 +15,7 @@ const styles = theme => ({
   moreInfo: {
     position: 'fixed',
     marginRight: '32px',
-  }
+  },
 });
 
 class SchoolList extends Component {
@@ -24,7 +23,7 @@ class SchoolList extends Component {
     super();
 
     this.state = {
-      selectedHighSchool: null
+      selectedHighSchool: null,
     };
 
     this.selectHighSchool = this.selectHighSchool.bind(this);
@@ -33,7 +32,7 @@ class SchoolList extends Component {
 
   selectHighSchool(selectedHighSchool) {
     this.setState({
-      selectedHighSchool
+      selectedHighSchool,
     });
   }
 
@@ -42,7 +41,7 @@ class SchoolList extends Component {
       // note(seb): i know this is a topic for debate, have no strong opinion but
       //            using `null` here since `undefined` is the value that a variable gets
       //            before any value has been assigned to it
-      selectedHighSchool: null
+      selectedHighSchool: null,
     });
   }
 
@@ -51,26 +50,43 @@ class SchoolList extends Component {
 
     return (
       <Grid container className={this.props.classes.root} spacing={16}>
-          <Grid item xs={12} sm={12} lg={this.state.selectedHighSchool ? 9 : 12}>
-            <Grid style={{ overflow: 'auto' }} container wrap="wrap" justify="center" spacing={16}>
-              {highSchools.map((highSchool, i) => (
-                <Grid key={i} xs={12} sm={12} md={4} xl={3} item>
-                  <SchoolListing
-                    highSchool={highSchool}
-                    onMoreInfo={this.selectHighSchool}
-                  />
-                </Grid>
-              ))}
-            </Grid>
+        <Grid item xs={12} sm={12} lg={this.state.selectedHighSchool ? 9 : 12}>
+          <Grid
+            style={{ overflow: 'auto' }}
+            container
+            wrap="wrap"
+            justify="center"
+            spacing={16}
+          >
+            {highSchools.map((highSchool, i) => (
+              <Grid key={i} xs={12} sm={12} md={4} xl={3} item>
+                <SchoolListing
+                  highSchool={highSchool}
+                  onMoreInfo={this.selectHighSchool}
+                />
+              </Grid>
+            ))}
           </Grid>
+        </Grid>
 
-          {this.state.selectedHighSchool ? (
-            <Grid className={this.props.classes.moreInfoGrid} item xs={12} sm={12} md={3} xl={3}>
-              <InfoDrawer className={this.props.classes.moreInfo} highSchool={this.state.selectedHighSchool} onClose={this.state.closeMoreInfo}/>
-            </Grid>
-          ) : (
-            ''
-          )}
+        {this.state.selectedHighSchool ? (
+          <Grid
+            className={this.props.classes.moreInfoGrid}
+            item
+            xs={12}
+            sm={12}
+            md={3}
+            xl={3}
+          >
+            <InfoDrawer
+              className={this.props.classes.moreInfo}
+              highSchool={this.state.selectedHighSchool}
+              onClose={this.state.closeMoreInfo}
+            />
+          </Grid>
+        ) : (
+          ''
+        )}
       </Grid>
     );
   }
@@ -79,4 +95,3 @@ class SchoolList extends Component {
 // note(seb): i generally prefer render props as a pattern but this is how this
 //            particular ui toolkit is used
 export default withStyles(styles)(SchoolList);
-

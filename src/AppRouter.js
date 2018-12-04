@@ -8,14 +8,13 @@ import ListingPage from './pages/ListingPage';
 import ComparePage from './pages/ComparePage';
 
 const AppRouter = () => {
-
   return (
     <Router>
       <HighSchoolDataProvider>
         <SchoolCompareProvider>
           <App>
-            <Route exact path='/' component={ListingPage} />
-            <Route path='/compare' component={ComparePage} />
+            <Route exact path="/" component={ListingPage} />
+            <Route path="/compare" component={ComparePage} />
           </App>
         </SchoolCompareProvider>
       </HighSchoolDataProvider>
@@ -24,4 +23,3 @@ const AppRouter = () => {
 };
 
 export default AppRouter;
-

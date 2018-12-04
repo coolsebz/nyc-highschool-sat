@@ -2,6 +2,8 @@
   "extends": "react-app",
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react/prop-types": 1,
+    "import/imports-first": ["error", "absolute-first"],
   }
 }

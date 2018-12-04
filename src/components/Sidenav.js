@@ -17,7 +17,7 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 
 const drawerWidth = 240;
 const styles = theme => ({
-   toolbarIcon: {
+  toolbarIcon: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -54,8 +54,8 @@ const Sidenav = props => {
       classes={{
         paper: classNames(
           classes.drawerPaper,
-          !isOpen && classes.drawerPaperClose
-        )
+          !isOpen && classes.drawerPaperClose,
+        ),
       }}
       open={isOpen}
     >
@@ -66,13 +66,13 @@ const Sidenav = props => {
       </div>
       <Divider />
       <List>
-        <ListItem button component={Link} to='/'>
+        <ListItem button component={Link} to="/">
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>
           <ListItemText primary="List of High Schools" />
         </ListItem>
-        <ListItem button component={Link} to='/compare'>
+        <ListItem button component={Link} to="/compare">
           <ListItemIcon>
             <BarChartIcon />
           </ListItemIcon>
@@ -84,4 +84,3 @@ const Sidenav = props => {
 };
 
 export default withStyles(styles)(Sidenav);
-

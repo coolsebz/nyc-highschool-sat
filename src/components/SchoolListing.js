@@ -10,51 +10,67 @@ import { SchoolCompareConsumer } from './contexts/SchoolCompare';
 
 class SchoolListing extends PureComponent {
   render() {
-
     // other details i've considered: phone number? listing the avg score directly on the tile?
-    const { school_name, city, neighborhood, dbn, num_of_sat_test_takers } = this.props.highSchool;
+    const {
+      school_name,
+      city,
+      neighborhood,
+      dbn,
+      num_of_sat_test_takers,
+    } = this.props.highSchool;
     const { onMoreInfo } = this.props;
 
     const moreInfo = () => {
       onMoreInfo(this.props.highSchool);
-    }
+    };
 
-    const addToCompare = (addSchool) => {
+    const addToCompare = addSchool => {
       this.props.highSchool.isAddedToCompare = true;
-      addSchool(this.props.highSchool)
-    }
+      addSchool(this.props.highSchool);
+    };
 
-    const removeFromCompare = (removeSchool) => {
+    const removeFromCompare = removeSchool => {
       this.props.highSchool.isAddedToCompare = false;
-      removeSchool(this.props.highSchool)
-    }
+      removeSchool(this.props.highSchool);
+    };
 
     return (
       <Card>
         <CardContent>
           <Typography color="textSecondary" gutterBottom>
-            { dbn }
+            {dbn}
           </Typography>
           <Typography noWrap variant="h5" component="h2">
-            { school_name }
+            {school_name}
           </Typography>
           <Typography noWrap color="textSecondary" gutterBottom>
-            { `${city}, ${neighborhood}` }
+            {`${city}, ${neighborhood}`}
           </Typography>
-          <br/>
+          <br />
           <Typography variant="body1" component="p">
-            { `${num_of_sat_test_takers} students have taken the SAT` }
+            {`${num_of_sat_test_takers} students have taken the SAT`}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={moreInfo}>More info</Button>
+          <Button size="small" onClick={moreInfo}>
+            More info
+          </Button>
 
           <SchoolCompareConsumer>
-            {({addSchool, removeSchool}) => (
-              this.props.highSchool.isAddedToCompare ?
-              (<Button size="small" onClick={() => removeFromCompare(removeSchool)}>Remove from compare</Button>) :
-              (<Button size="small" onClick={() => addToCompare(addSchool)}>Add to compare</Button>)
-            )}
+            {({ addSchool, removeSchool }) =>
+              this.props.highSchool.isAddedToCompare ? (
+                <Button
+                  size="small"
+                  onClick={() => removeFromCompare(removeSchool)}
+                >
+                  Remove from compare
+                </Button>
+              ) : (
+                <Button size="small" onClick={() => addToCompare(addSchool)}>
+                  Add to compare
+                </Button>
+              )
+            }
           </SchoolCompareConsumer>
         </CardActions>
       </Card>
@@ -73,4 +89,3 @@ SchoolListing.defaultProps = {
 };
 
 export default SchoolListing;
-

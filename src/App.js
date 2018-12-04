@@ -52,10 +52,9 @@ const styles = theme => ({
     height: '100vh',
     overflow: 'auto',
   },
-})
+});
 
 class App extends Component {
-
   state = {
     drawerOpen: true,
   };
@@ -75,9 +74,15 @@ class App extends Component {
         <CssBaseline />
         <AppBar
           position="absolute"
-          className={classNames(classes.appBar, this.state.drawerOpen && classes.appBarShift)}
+          className={classNames(
+            classes.appBar,
+            this.state.drawerOpen && classes.appBarShift,
+          )}
         >
-          <Toolbar disableGutters={!this.state.drawerOpen} className={classes.toolbar}>
+          <Toolbar
+            disableGutters={!this.state.drawerOpen}
+            className={classes.toolbar}
+          >
             <IconButton
               color="inherit"
               aria-label="Open drawer"
@@ -101,12 +106,15 @@ class App extends Component {
           </Toolbar>
         </AppBar>
 
-        <Sidenav isOpen={this.state.drawerOpen} onToggle={this.handleDrawerClose} />
+        <Sidenav
+          isOpen={this.state.drawerOpen}
+          onToggle={this.handleDrawerClose}
+        />
 
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
-          { /* this is where our "app" goes */ }
-          { this.props.children }
+          {/* this is where our "app" goes */}
+          {this.props.children}
         </main>
       </div>
     );

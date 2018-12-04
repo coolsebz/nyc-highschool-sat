@@ -8,7 +8,6 @@ import TableRow from '@material-ui/core/TableRow';
 
 class ScoresTable extends PureComponent {
   render() {
-
     const schoolData = [];
 
     // note(seb): this is really ugly, but to speed things up i chose to write a
@@ -20,7 +19,7 @@ class ScoresTable extends PureComponent {
         avgReadingScore: school.sat_critical_reading_avg_score,
         avgMathScore: school.sat_math_avg_score,
         avgWritingScore: school.sat_writing_avg_score,
-      })
+      });
     });
 
     return (
@@ -44,7 +43,7 @@ class ScoresTable extends PureComponent {
                 <TableCell numeric>{school.avgMathScore}</TableCell>
                 <TableCell numeric>{school.avgWritingScore}</TableCell>
               </TableRow>
-            )
+            );
           })}
         </TableBody>
       </Table>
