@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/nyc-highschool-sat/precache-manifest.af32ac3c45dbe7969944632973d2e49d.js"
+  "/nyc-highschool-sat/precache-manifest.bb8a34d2ae7f31e43d37088168e12545.js"
 );
 
 workbox.clientsClaim();
