@@ -1,7 +1,7 @@
 ## NYC High School and SAT Scores List
 
 
-Live url: https://coolsebz.github.io
+Live url: https://coolsebz.github.io/nyc-highschool-sat/
 
 ### Running the project
 
