@@ -1,44 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## NYC High School and SAT Scores List
 
-## Available Scripts
 
-In the project directory, you can run:
+Live url: https://coolsebz.github.io
 
-### `npm start`
+### Running the project
 
-Runs the app in the development mode.<br>
+Clone the repository
+`npm install` and then `npm start`
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Overall organisation of the project
 
-### `npm test`
+Has two main pages, one for the list of high schools and one where you can compare selected highschools.
+The information is provided via a separate worker that does the aggregation and then held into a react context for the components to plug into.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Also using [https://material-ui.com](material-ui) for the project, with a minimal amount of styles needed on top of that.
 
-### `npm run build`
+### Tests
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the interest of time, I wrote tests for some of the more interesting parts of the school listing part of the app, such as the edge cases in the worker (in the dataset there's some values that wouldn't make sense to display), the SAT score table for a school, and the information component overall.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Future improvements
 
-### `npm run eject`
+There's still a few things I would've wanted to get to do but felt a bit short on time for, such as:
+- There are some responsiveness quirks that I would've loved to fix
+- Add Search directly in the app
+- More metrics to compare (eg: compare school vs mean, per student metrics, geographical heatmap, etc)
+- In-between-visits storage of selected high schools for comparison
+- Add a Google Maps integration for linking the location of a school directly
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Similarly, before moving this project to be a real production app, I would want to:
+- Add support for translations and localisation
+- Introduce code splitting (especially since we have quite separate routes in the app)
+- Improve the matching mechanism between a school and scores (really naive right now) and move it to an API
+- HTTPS for the app, add CSPs for resources, move assets to CDN
